@@ -98,8 +98,6 @@ export default function RootLayout({ children }) {
     } else {
       setOpen(false);
     }
-    console.log(match.matches);
-    console.log(match.onchange);
   }, []);
 
   const handleDrawerOpen = () => {
