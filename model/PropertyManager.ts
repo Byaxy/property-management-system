@@ -5,12 +5,18 @@ import BaseSchema from "./BaseSchema";
 const options = { timestamps: true };
 
 const PropertyManagerSchema = new Schema({
-    property: {
+    propertyId: {
         type: Types.ObjectId,
         ref: Models.Property,
-        required: true
+        required: true,
+        validate: {
+            validator: function(value: Types.ObjectId) {
+                // Ensure senderId != receiverId
+                return !value.equals(this.managerId);
+            }
+        }
     },
-    manager: {
+    managerId: {
         type: Types.ObjectId,
         ref: Models.Manager,
         required: true

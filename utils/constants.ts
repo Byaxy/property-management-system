@@ -7,6 +7,7 @@ let ROLES: string[] = ["ADMIN", "MANAGER"];
 let EMAIL_REGEX: RegExp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 let RENTAL_UNIT_TYPE: string[] = ["Single Room", "1 Bedroom", "2 Bedroom", "3 Bedroom"];
 let PROPERTY_TYPE: string[] = ["RENTAL", "HOSTEL", "FURNISHED"];
+let PHONE_NUMBER_REGEX: RegExp = /^\d{12}$/;
 
 enum Models {
     RentalUnit = "RentalUnit",
@@ -29,5 +30,7 @@ export {
     ROLES,
     EMAIL_REGEX,
     RENTAL_UNIT_TYPE,
-    Models
+    Models,
+    PHONE_NUMBER_REGEX,
+    PROPERTY_TYPE
 }

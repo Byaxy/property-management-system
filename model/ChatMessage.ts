@@ -7,7 +7,13 @@ const ChatMessageSchema = new Schema({
     senderId: {
         type: Types.ObjectId,
         ref: Models.User,
-        required: true
+        required: true,
+        validate: {
+            validator: function(value: Types.ObjectId) {
+                // Ensure senderId != receiverId
+                return !value.equals(this.receiverId);
+            }
+        }
     },
     receiverId: {
         type: Types.ObjectId,

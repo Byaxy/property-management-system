@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 import BaseSchema from './BaseSchema';
-import { Models } from '@/utils/constants';
+import { Models, PROPERTY_TYPE } from '@/utils/constants';
 
 const options = { timestamps: true };
 
@@ -16,6 +16,14 @@ const PropertySchema = new Schema({
     town: {
         type: String,
         required: true
+    },
+    propertyType: {
+        type: String,
+        required: true,
+        enum: PROPERTY_TYPE
+    },
+    photos: {
+        type: Array<String>
     },
     ...BaseSchema
 }, options);

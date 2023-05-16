@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { IDENTIFICATION_TYPE, MARITAL_STATUS, GENDER, COUNTRIES, EMAIL_REGEX, Models } from '@/utils/constants';
+import { IDENTIFICATION_TYPE, MARITAL_STATUS, GENDER, COUNTRIES, EMAIL_REGEX, Models, PHONE_NUMBER_REGEX } from '@/utils/constants';
 import BaseSchema from './BaseSchema';
 
 const options = { timestamps: true };
@@ -33,7 +33,7 @@ const ManagerSchema = new Schema({
         unique: true,
         validate: {
             validator: function(value: string) {
-                return /^\d{12}$/.test(value)
+                return PHONE_NUMBER_REGEX.test(value)
             }
         }
     },

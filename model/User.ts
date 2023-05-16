@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { EMAIL_REGEX, Models } from '@/utils/constants';
+import { EMAIL_REGEX, Models, ROLES } from '@/utils/constants';
 import BaseSchema from './BaseSchema';
 
 const options = { timestamps: true };
@@ -19,14 +19,20 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    isActive: {
-        type: Boolean,
-        default: false
-    },
     roles: {
         type: [],
         required: true,
-        /*TODO: Add validation*/
+        validate: {
+            validator: function(values: []) {
+                // Maximum assignable roles are CODE_MANAGER and ADMIN
+                if (values.length > 2) return false;
+
+                values.forEach(value => {
+                    if (ROLES.indexOf(value) == -1) return false;
+                })
+                return true;
+            }
+        }
     },
     ...BaseSchema
 }, options);

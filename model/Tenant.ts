@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { IDENTIFICATION_TYPE, MARITAL_STATUS, EMPLOYMENT_STATUS, GENDER, COUNTRIES, Models } from '@/utils/constants';
+import { IDENTIFICATION_TYPE, MARITAL_STATUS, EMPLOYMENT_STATUS, GENDER, COUNTRIES, Models, EMAIL_REGEX, PHONE_NUMBER_REGEX } from '@/utils/constants';
 import BaseSchema from './BaseSchema';
 
 const options = { timestamps: true };
@@ -22,7 +22,7 @@ const TenantSchema = new Schema({
         unique: true,
         validate: {
             validator: function(value: string) {
-                return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)
+                return EMAIL_REGEX.test(value)
             }
         }
     },
@@ -32,7 +32,7 @@ const TenantSchema = new Schema({
         unique: true,
         validate: {
             validator: function(value: string) {
-                return /^\d{12}$/.test(value)
+                return PHONE_NUMBER_REGEX.test(value)
             }
         }
     },

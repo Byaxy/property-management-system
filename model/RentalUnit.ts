@@ -21,7 +21,8 @@ const RentalUnitSchema = new Schema({
     },
     property: {
         type: Types.ObjectId,
-        ref: Models.Property
+        ref: Models.Property,
+        required: true
     },
     ...BaseSchema
 }, options);
