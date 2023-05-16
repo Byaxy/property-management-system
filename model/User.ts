@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { IDENTIFICATION_TYPE, MARITAL_STATUS, EMPLOYMENT_STATUS, GENDER, COUNTRIES, Models, EMAIL_REGEX, PHONE_NUMBER_REGEX, ROLES } from '@/utils/constants';
+import { IDENTIFICATION_TYPE, MARITAL_STATUS, EMPLOYMENT_STATUS, GENDER, COUNTRIES, Models, EMAIL_REGEX, PHONE_NUMBER_REGEX, Roles } from '@/utils/constants';
 import BaseSchema from './BaseSchema';
 
 const options = { timestamps: true };
@@ -66,11 +66,10 @@ const UserSchema = new Schema({
         required: true,
         validate: {
             validator: function(values: []) {
-                // Maximum assignable roles are CODE_MANAGER and ADMIN
-                if (values.length > 2) return false;
+                let rolesList = Object.values(Roles);
 
                 values.forEach(value => {
-                    if (ROLES.indexOf(value) == -1) return false;
+                    if (rolesList.indexOf(value) == -1) return false;
                 })
                 return true;
             }
