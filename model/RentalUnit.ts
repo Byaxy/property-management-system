@@ -16,8 +16,7 @@ const RentalUnitSchema = new Schema({
     },
     rent: {
         type: Number,
-        min: 0,
-        max: Infinity
+        min: 0
     },
     property: {
         type: Types.ObjectId,

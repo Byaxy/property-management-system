@@ -12,8 +12,8 @@ const RentalUnitTenantSchema = new Schema({
     },
     tenant: {
         type: Types.ObjectId,
-        ref: Models.Tenant,
-        required: true        
+        ref: Models.User,
+        required: true
     },
     ...BaseSchema
 }, options);

@@ -18,7 +18,7 @@ const PropertyManagerSchema = new Schema({
     },
     managerId: {
         type: Types.ObjectId,
-        ref: Models.Manager,
+        ref: Models.User,
         required: true
     },
     ...BaseSchema
