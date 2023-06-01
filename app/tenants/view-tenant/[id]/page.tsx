@@ -41,7 +41,7 @@ export default function ViewTenantPage({ params }) {
                           Tenant Name:
                         </span>
                         <span className="text-textGray">
-                          {tenant.tenantName}
+                          {tenant.firstName} {tenant.lastName}
                         </span>
                       </p>
                       <p className="grid grid-cols-2">
@@ -89,7 +89,7 @@ export default function ViewTenantPage({ params }) {
                       <span className="text-textPrimary font-medium">
                         Address:
                       </span>
-                      <span className="text-textGray">{tenant?.address}</span>
+                      <span className="text-textGray">{tenant?.location}</span>
                     </p>
                     <p className="grid grid-cols-2">
                       <span className="text-textPrimary font-medium">
@@ -104,46 +104,6 @@ export default function ViewTenantPage({ params }) {
                       <span className="text-textGray">
                         {tenant.nationality}
                       </span>
-                    </p>
-                  </div>
-                </div>
-                {/** Rental Details Section */}
-                <div>
-                  <h4 className="text-textPrimary my-3 p-2 bg-lightGrayColor">
-                    Rental Details
-                  </h4>
-                  <div className="grid grid-cols-2 gap-2">
-                    <p className="grid grid-cols-2">
-                      <span className="text-textPrimary font-medium">
-                        Status
-                      </span>
-                      <span className="text-textGray">{tenant.status}</span>
-                    </p>
-                    <p className="grid grid-cols-2">
-                      <span className="text-textPrimary font-medium">
-                        House Number/Unit
-                      </span>
-                      <span className="text-textGray">
-                        {tenant.houseNumber}
-                      </span>
-                    </p>
-                    <p className="grid grid-cols-2">
-                      <span className="text-textPrimary font-medium">
-                        House/Unit Type
-                      </span>
-                      <span className="text-textGray">{tenant?.houseType}</span>
-                    </p>
-                    <p className="grid grid-cols-2">
-                      <span className="text-textPrimary font-medium">
-                        Property Name
-                      </span>
-                      <span className="text-textGray">{tenant?.houseName}</span>
-                    </p>
-                    <p className="grid grid-cols-2">
-                      <span className="text-textPrimary font-medium">
-                        Property Location
-                      </span>
-                      <span className="text-textGray">{tenant.location}</span>
                     </p>
                   </div>
                 </div>
