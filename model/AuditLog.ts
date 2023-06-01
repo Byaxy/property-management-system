@@ -15,4 +15,4 @@ const AuditLogSchema = new Schema<IAuditLog>({
     }
 }, options);
 
-export default model(Models.AuditLog, AuditLogSchema);
+export default model<IAuditLog>(Models.AuditLog, AuditLogSchema);

@@ -1,4 +1,4 @@
-import { Models } from "@/utils";
+import { IRentalUnitTenant, Models } from "@/utils";
 import { Schema, Types, model } from "mongoose";
 
 const options = { timestamps: true };
@@ -20,4 +20,4 @@ const RentalUnitTenantSchema = new Schema({
     }
 }, options);
 
-export default model(Models.RentalUnitTenant, RentalUnitTenantSchema);
+export default model<IRentalUnitTenant>(Models.RentalUnitTenant, RentalUnitTenantSchema);

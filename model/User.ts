@@ -84,4 +84,4 @@ const UserSchema = new Schema<IUser>({
     }
 }, options);
 
-export default model(Models.User, UserSchema);
+export default model<IUser>(Models.User, UserSchema);

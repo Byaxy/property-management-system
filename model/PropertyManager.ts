@@ -26,4 +26,4 @@ const PropertyManagerSchema = new Schema<IPropertyManager>({
     }
 }, options);
 
-export default model(Models.PropertyManager, PropertyManagerSchema);
+export default model<IPropertyManager>(Models.PropertyManager, PropertyManagerSchema);

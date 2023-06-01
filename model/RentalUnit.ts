@@ -34,4 +34,4 @@ const RentalUnitSchema = new Schema<IRentalUnit>({
 }, options);
 
 
-export default model(Models.RentalUnit, RentalUnitSchema);
+export default model<IRentalUnit>(Models.RentalUnit, RentalUnitSchema);

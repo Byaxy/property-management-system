@@ -32,4 +32,4 @@ const PropertySchema = new Schema<IProperty>({
     }
 }, options);
 
-export default model(Models.Property, PropertySchema);
+export default model<IProperty>(Models.Property, PropertySchema);
