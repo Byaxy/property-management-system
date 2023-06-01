@@ -59,10 +59,7 @@ const UserSchema = new Schema<IUser>({
         enum: MARITAL_STATUS
     },
     photo: String,
-    password: {
-        type: String,
-        required: true
-    },
+    password: String,
     roles: {
         type: [],
         required: true,

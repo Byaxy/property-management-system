@@ -10,4 +10,4 @@ export let EMPLOYMENT_STATUS: string[] = Object.values(EmploymentStatus);
 export let GENDER: string[] = Object.values(Gender);
 export let RENTAL_UNIT_TYPE: string[] = Object.values(RentalUnitType);
 export let RENTAL_PERIODS: string[] = Object.values(RentalPeriods);
-export let DEFAULT_MODEL_OPTIONS: SchemaOptions = { timestamps: true, bufferCommands: false };
+export let DEFAULT_MODEL_OPTIONS: SchemaOptions = { timestamps: true, bufferCommands: false, autoCreate: false };

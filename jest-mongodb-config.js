@@ -5,7 +5,7 @@ module.exports = {
         skipMD5: true,
       },
       instance: {
-        dbName: 'pms',
+        dbName: process.env.DB_NAME,
       },
       autoStart: false,
     },
