@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <div className="w-full h-full bg-white flex flex-row justify-between items-center">
       <div className="flex items-center justify-start bg-lightGrayColor w-fit rounded-md px-2 py-1">
-        <SearchIcon className="text-textGray h-5 w-5" />
+        <SearchIcon className="text-textGray h-6 w-6 cursor-pointer" />
         <input
           className="text-textPrimary outline-none bg-lightGrayColor border-0 w-[40vw] md:w-[50vw] lg:w-[35vw] py-1 px-3 text-[17px] rounded-md"
           type="text"
@@ -26,7 +26,7 @@ export default function Header() {
         </Avatar>
         {showPopup && (
           <div className="absolute top-10 -right-[5.5rem] z-10 min-w-[70vw] md:min-w-[38vw] lg:min-w-[25vw] xl:min-w-[20vw] bg-white rounded-lg shadow-md px-4 pb-4 slide-left">
-            <p className="flex flex-col justify-start ">
+            <p className="flex flex-col justify-start gap-1 mb-6">
               <span className="font-bold text-textPrimary block">
                 Charles Byakutaga
               </span>

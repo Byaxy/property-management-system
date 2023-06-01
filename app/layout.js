@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import { styled, useTheme } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
@@ -89,18 +90,15 @@ const Drawer = styled(MuiDrawer, {
 export default function RootLayout({ children }) {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
+  const matchesMidium = useMediaQuery(theme.breakpoints.down("md"));
 
   useEffect(() => {
-    const match = window.matchMedia("min-width: 600px");
-
-    if (!match.matches) {
-      setOpen(true);
-    } else {
+    if (matchesMidium) {
       setOpen(false);
+    } else {
+      setOpen(true);
     }
-    console.log(match.matches);
-    console.log(match.onchange);
-  }, []);
+  }, [matchesMidium]);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -112,8 +110,8 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-lightGrayColor`}>
-        <Box className="flex">
+      <body className={`${inter.className} `}>
+        <Box className="flex bg-lightGrayColor">
           <CssBaseline />
           <AppBar
             className="bg-white text-textPrimary fixed shadow-sm"

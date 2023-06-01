@@ -45,12 +45,6 @@ export const data = [
     path: "/reports",
     icon: <SummarizeRoundedIcon />,
   },
-
-  {
-    title: "Chat",
-    path: "/chat",
-    icon: <ChatBubbleRoundedIcon />,
-  },
   {
     title: "Users",
     path: "/users",
