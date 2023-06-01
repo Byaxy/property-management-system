@@ -92,7 +92,7 @@ export interface IUser {
 }
 
 export interface IAuditLog {
-    action: Crud,
+    action: string,
     performedBy: Types.ObjectId
 }
 

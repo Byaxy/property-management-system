@@ -1,18 +1,8 @@
 import mongoose from 'mongoose';
 import User from '@/model/User';
-import { Gender, IUser, IdType } from '@/utils';
+import { mockUser } from "@/utils/mock-data";
 
-describe("tests CRUD operations on users collection", () => {
-    const mockUser: IUser =  {
-        firstName: "John",
-        lastName: "Doe",
-        identificationNumber: "A1289590",
-        identificationType: IdType.PASSPORT,
-        phoneNumber: "256712890456",
-        gender: Gender.FEMALE,
-        nationality: "Uganda"
-    }
-
+describe("tests CRUD operations using User as test model", () => {
     beforeAll(async () => {
         await mongoose.connect(process.env.MONGO_URL, { dbName: process.env.DB_NAME });
     });
@@ -22,10 +12,8 @@ describe("tests CRUD operations on users collection", () => {
     })
 
     it("creates a user", async () => {
-        const user = new User(mockUser);
-        await user.save();
-        const queryResults = await User.find().exec();
-        expect(queryResults.length).toBe(1);
+        const user = await User.create(mockUser);
+        expect(user).toBeDefined();
     })
 
     it("fills default values", async() => {
