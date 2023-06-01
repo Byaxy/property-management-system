@@ -1,6 +1,5 @@
-import { Models } from "@/utils/constants";
+import { IRentalUnitTenant, Models } from "@/utils";
 import { Schema, Types, model } from "mongoose";
-import BaseSchema from "./BaseSchema";
 
 const options = { timestamps: true };
 
@@ -15,7 +14,10 @@ const RentalUnitTenantSchema = new Schema({
         ref: Models.User,
         required: true
     },
-    ...BaseSchema
+    isActive: {
+        type: Boolean,
+        default: true
+    }
 }, options);
 
-export default model(Models.RentalUnitTenant, RentalUnitTenantSchema);
+export default model<IRentalUnitTenant>(Models.RentalUnitTenant, RentalUnitTenantSchema);

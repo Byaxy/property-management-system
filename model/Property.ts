@@ -1,10 +1,9 @@
 import { Schema, model } from 'mongoose';
-import BaseSchema from './BaseSchema';
-import { Models, PROPERTY_TYPE } from '@/utils/constants';
+import { IProperty, PropertyType, Models } from '@/utils';
 
 const options = { timestamps: true };
 
-const PropertySchema = new Schema({
+const PropertySchema = new Schema<IProperty>({
     name: {
         type: String,
         required: true
@@ -20,16 +19,17 @@ const PropertySchema = new Schema({
     propertyType: {
         type: String,
         required: true,
-        enum: PROPERTY_TYPE
+        enum: PropertyType
     },
     numberOfUnits: {
         type: Number,
         required: true
     },
-    photos: {
-        type: Array<String>
-    },
-    ...BaseSchema
+    photos: Array<String>,
+    isActive: {
+        type: Boolean,
+        default: true
+    }
 }, options);
 
-export default model(Models.Property, PropertySchema);
+export default model<IProperty>(Models.Property, PropertySchema);
