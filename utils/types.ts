@@ -88,7 +88,7 @@ export interface IUser {
     photo?: string,
     password?: string,
     roles?: Array<Roles>,
-    isActive: boolean
+    isActive?: boolean
 }
 
 export interface IAuditLog {

@@ -1,7 +1,5 @@
-import { Schema, model, Types } from "mongoose";
-import { IRentalUnit, Models, RENTAL_UNIT_TYPE, RENTAL_PERIODS } from "@/utils";
-
-const options = { timestamps: true };
+import { Schema, model } from "mongoose";
+import { IRentalUnit, Models, RENTAL_UNIT_TYPE, RENTAL_PERIODS, DEFAULT_MODEL_OPTIONS } from "@/utils";
 
 const RentalUnitSchema = new Schema<IRentalUnit>({
     unitNumber: {
@@ -31,7 +29,7 @@ const RentalUnitSchema = new Schema<IRentalUnit>({
         type: Boolean,
         default: true
     }
-}, options);
+}, DEFAULT_MODEL_OPTIONS);
 
 
 export default model<IRentalUnit>(Models.RentalUnit, RentalUnitSchema);

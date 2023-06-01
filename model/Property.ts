@@ -1,7 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { IProperty, PropertyType, Models } from '@/utils';
-
-const options = { timestamps: true };
+import { IProperty, PropertyType, Models, DEFAULT_MODEL_OPTIONS } from '@/utils';
 
 const PropertySchema = new Schema<IProperty>({
     name: {
@@ -30,6 +28,6 @@ const PropertySchema = new Schema<IProperty>({
         type: Boolean,
         default: true
     }
-}, options);
+}, DEFAULT_MODEL_OPTIONS);
 
 export default model<IProperty>(Models.Property, PropertySchema);

@@ -1,7 +1,5 @@
-import { IAuditLog, Models } from "@/utils";
-import { Schema, model } from "mongoose";
-
-const options = { timestamps: true };
+import { IAuditLog, Models, DEFAULT_MODEL_OPTIONS } from "@/utils";
+import { Schema, model,SchemaOptions } from "mongoose";
 
 const AuditLogSchema = new Schema<IAuditLog>({
     action: {
@@ -13,6 +11,6 @@ const AuditLogSchema = new Schema<IAuditLog>({
         ref: Models.User,
         required: true
     }
-}, options);
+}, DEFAULT_MODEL_OPTIONS);
 
 export default model<IAuditLog>(Models.AuditLog, AuditLogSchema);

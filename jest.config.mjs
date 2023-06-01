@@ -1,6 +1,4 @@
 import nextJest from 'next/jest.js';
-// const shelfPreset = require("@shelf/jest-mongodb/jest-preset");
-import shelfPreset from "@shelf/jest-mongodb/jest-preset";
  
 const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
@@ -12,7 +10,7 @@ const createJestConfig = nextJest({
 const config = {
   // Add more setup options before each test is run
   // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
- ...shelfPreset,
+  preset: "@shelf/jest-mongodb",
   testEnvironment: 'node',
   watchPathIgnorePatterns: ['globalConfig'],
 };

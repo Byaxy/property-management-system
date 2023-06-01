@@ -1,6 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { IDENTIFICATION_TYPE, MARITAL_STATUS, EMPLOYMENT_STATUS, GENDER, COUNTRIES, Models, EMAIL_REGEX, PHONE_NUMBER_REGEX, Roles } from '@/utils';
-import { IUser } from '@/utils';
+import { IDENTIFICATION_TYPE, MARITAL_STATUS, EMPLOYMENT_STATUS, GENDER, COUNTRIES, Models, EMAIL_REGEX, PHONE_NUMBER_REGEX, Roles, IUser, DEFAULT_MODEL_OPTIONS } from '@/utils';
 
 const options = { timestamps: true };
 
@@ -82,6 +81,6 @@ const UserSchema = new Schema<IUser>({
         type: Boolean,
         default: true
     }
-}, options);
+}, DEFAULT_MODEL_OPTIONS);
 
 export default model<IUser>(Models.User, UserSchema);
