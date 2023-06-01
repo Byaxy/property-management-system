@@ -1,12 +1,11 @@
-import { Models } from "@/utils/constants";
 import { Schema, Types, model } from "mongoose";
-import BaseSchema from "./BaseSchema";
+import { IPropertyManager, Models } from "@/utils";
 
 const options = { timestamps: true };
 
-const PropertyManagerSchema = new Schema({
+const PropertyManagerSchema = new Schema<IPropertyManager>({
     propertyId: {
-        type: Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: Models.Property,
         required: true,
         validate: {
@@ -17,11 +16,14 @@ const PropertyManagerSchema = new Schema({
         }
     },
     managerId: {
-        type: Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: Models.User,
         required: true
     },
-    ...BaseSchema
+    isActive: {
+        type: Boolean,
+        default: true
+    }
 }, options);
 
 export default model(Models.PropertyManager, PropertyManagerSchema);

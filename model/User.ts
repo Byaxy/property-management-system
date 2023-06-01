@@ -1,10 +1,10 @@
 import { Schema, model } from 'mongoose';
-import { IDENTIFICATION_TYPE, MARITAL_STATUS, EMPLOYMENT_STATUS, GENDER, COUNTRIES, Models, EMAIL_REGEX, PHONE_NUMBER_REGEX, Roles } from '@/utils/constants';
-import BaseSchema from './BaseSchema';
+import { IDENTIFICATION_TYPE, MARITAL_STATUS, EMPLOYMENT_STATUS, GENDER, COUNTRIES, Models, EMAIL_REGEX, PHONE_NUMBER_REGEX, Roles } from '@/utils';
+import { IUser } from '@/utils';
 
 const options = { timestamps: true };
 
-const UserSchema = new Schema({
+const UserSchema = new Schema<IUser>({
     firstName: {
         type: String,
         required: true,
@@ -78,7 +78,10 @@ const UserSchema = new Schema({
             }
         }
     },
-    ...BaseSchema
+    isActive: {
+        type: Boolean,
+        default: true
+    }
 }, options);
 
 export default model(Models.User, UserSchema);

@@ -1,15 +1,15 @@
-import { Models } from "@/utils/constants";
-import { Schema, Types, model } from "mongoose";
+import { IAuditLog, Models } from "@/utils";
+import { Schema, model } from "mongoose";
 
 const options = { timestamps: true };
 
-const AuditLogSchema = new Schema({
+const AuditLogSchema = new Schema<IAuditLog>({
     action: {
         type: String,
         required: true
     },
     performedBy: {
-        type: Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: Models.User,
         required: true
     }

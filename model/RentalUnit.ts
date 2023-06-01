@@ -1,10 +1,9 @@
 import { Schema, model, Types } from "mongoose";
-import { Models, RENTAL_UNIT_TYPE, RENTAL_PERIODS } from "@/utils/constants";
-import BaseSchema from "./BaseSchema";
+import { IRentalUnit, Models, RENTAL_UNIT_TYPE, RENTAL_PERIODS } from "@/utils";
 
 const options = { timestamps: true };
 
-const RentalUnitSchema = new Schema({
+const RentalUnitSchema = new Schema<IRentalUnit>({
     unitNumber: {
         type: String,
         required: true
@@ -23,12 +22,15 @@ const RentalUnitSchema = new Schema({
         required: true,
         enum: RENTAL_PERIODS
     },
-    property: {
-        type: Types.ObjectId,
+    propertyId: {
+        type: Schema.Types.ObjectId,
         ref: Models.Property,
         required: true
     },
-    ...BaseSchema
+    isActive: {
+        type: Boolean,
+        default: true
+    }
 }, options);
 
 
