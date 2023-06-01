@@ -9,11 +9,11 @@ const PropertySchema = new Schema({
         type: String,
         required: true
     },
-    estate: {
+    location: {
         type: String,
         required: true
     },
-    town: {
+    city: {
         type: String,
         required: true
     },
@@ -21,6 +21,10 @@ const PropertySchema = new Schema({
         type: String,
         required: true,
         enum: PROPERTY_TYPE
+    },
+    numberOfUnits: {
+        type: Number,
+        required: true
     },
     photos: {
         type: Array<String>

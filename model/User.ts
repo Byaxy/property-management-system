@@ -5,7 +5,11 @@ import BaseSchema from './BaseSchema';
 const options = { timestamps: true };
 
 const UserSchema = new Schema({
-    name: {
+    firstName: {
+        type: String,
+        required: true,
+    },
+    lastName: {
         type: String,
         required: true,
     },
@@ -41,8 +45,7 @@ const UserSchema = new Schema({
         enum: GENDER
     },
     address: String,
-    town: String,
-    zip: String,
+    city: String,
     nationality: {
         type: String,
         enum: COUNTRIES

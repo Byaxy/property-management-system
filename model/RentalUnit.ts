@@ -1,5 +1,5 @@
 import { Schema, model, Types } from "mongoose";
-import { Models, RENTAL_UNIT_TYPE } from "@/utils/constants";
+import { Models, RENTAL_UNIT_TYPE, RENTAL_PERIODS } from "@/utils/constants";
 import BaseSchema from "./BaseSchema";
 
 const options = { timestamps: true };
@@ -14,9 +14,14 @@ const RentalUnitSchema = new Schema({
         required: true,
         enum: RENTAL_UNIT_TYPE
     },
-    rent: {
+    rentAmount: {
         type: Number,
         min: 0
+    },
+    rentPeriod: {
+        type: String,
+        required: true,
+        enum: RENTAL_PERIODS
     },
     property: {
         type: Types.ObjectId,
