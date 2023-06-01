@@ -1,6 +1,12 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .slide-left {
   -webkit-animation: slide-left 0.8s ease-in-out both;
   animation: slide-left 0.8s ease-in-out both;
@@ -29,4 +35,15 @@
     transform: translateX(-100px);
     opacity: 1;
   }
+}
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

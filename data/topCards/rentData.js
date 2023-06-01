@@ -3,7 +3,7 @@ export const rentData = [
     data: {
       datasets: [
         {
-          data: [70, 30],
+          data: [189228, 47307],
           backgroundColor: ["#475BE8", "#E4E8EF"],
         },
       ],
