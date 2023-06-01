@@ -21,11 +21,13 @@ export enum Roles {
 export enum IdType {
     NATIONAL_ID = "National ID",
     PASSPORT = "Passport",
+    DRIVING_LICENSE = "Driving License"
 }
 
 export enum Gender {
     MALE = "Male", 
-    FEMALE = "Female"
+    FEMALE = "Female",
+    OTHER = "Other"
 }
 
 export enum EmploymentStatus {
