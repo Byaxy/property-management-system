@@ -103,12 +103,12 @@ export interface IProperty {
     propertyType: PropertyType,
     numberOfUnits: Number,
     photos?: Array<String>,
-    isActive: boolean
+    isActive?: boolean
 }
 
 export interface IPropertyManager {
-    propertyId: Types.ObjectId,
-    managerId: Types.ObjectId,
+    property: Types.ObjectId,
+    manager: Types.ObjectId,
     isActive: boolean
 }
 
@@ -117,12 +117,12 @@ export interface IRentalUnit {
     unitType: RentalUnitType,
     rentAmount: Number,
     rentPeriod: RentalPeriods,
-    propertyId: Types.ObjectId,
-    isActive: boolean
+    property: Types.ObjectId,
+    isActive?: boolean
 }
 
 export interface IRentalUnitTenant {
-    rentalUnitId: Types.ObjectId,
-    tenantId: Types.ObjectId,
+    rentalUnit: Types.ObjectId,
+    tenant: Types.ObjectId,
     isActive: boolean
 }

@@ -2,7 +2,7 @@ import { Schema, Types, model } from "mongoose";
 import { IPropertyManager, Models, DEFAULT_MODEL_OPTIONS } from "@/utils";
 
 const PropertyManagerSchema = new Schema<IPropertyManager>({
-    propertyId: {
+    property: {
         type: Schema.Types.ObjectId,
         ref: Models.Property,
         required: true,
@@ -13,7 +13,7 @@ const PropertyManagerSchema = new Schema<IPropertyManager>({
             }
         }
     },
-    managerId: {
+    manager: {
         type: Schema.Types.ObjectId,
         ref: Models.User,
         required: true

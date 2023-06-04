@@ -9,14 +9,15 @@ describe("tests one-to-one rel between audit-log and its creator", () => {
     beforeAll(async () => {
         await mongoose.connect(process.env.MONGO_URL, { dbName: process.env.DB_NAME });
         // Insert test user in db
-        const user = await User.create(mockUser);
-        userId = user._id;
-        console.log("---------------");
-        console.log(userId, user._id);
-        console.log("---------------");
+        userId = (await User.create(mockUser))._id;
     });
 
     afterAll(async () => {
+        // One DB instance used for all tests. 
+        // Clear DB for future tests
+        await User.deleteMany({});
+        await AuditLog.deleteMany({});
+        
         await mongoose.disconnect();
     })
 

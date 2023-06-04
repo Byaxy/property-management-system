@@ -21,7 +21,8 @@ const PropertySchema = new Schema<IProperty>({
     },
     numberOfUnits: {
         type: Number,
-        required: true
+        required: true,
+        min: 1
     },
     photos: Array<String>,
     isActive: {

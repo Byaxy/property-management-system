@@ -1,8 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { IDENTIFICATION_TYPE, MARITAL_STATUS, EMPLOYMENT_STATUS, GENDER, COUNTRIES, Models, EMAIL_REGEX, PHONE_NUMBER_REGEX, Roles, IUser, DEFAULT_MODEL_OPTIONS } from '@/utils';
 
-const options = { timestamps: true };
-
 const UserSchema = new Schema<IUser>({
     firstName: {
         type: String,

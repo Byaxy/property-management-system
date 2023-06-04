@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --coverage --detectOpenHandles"
+    "test": "jest --detectOpenHandles"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",

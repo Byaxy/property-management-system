@@ -20,7 +20,7 @@ const RentalUnitSchema = new Schema<IRentalUnit>({
         required: true,
         enum: RENTAL_PERIODS
     },
-    propertyId: {
+    property: {
         type: Schema.Types.ObjectId,
         ref: Models.Property,
         required: true
