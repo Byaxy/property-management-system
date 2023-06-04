@@ -31,5 +31,7 @@ const RentalUnitSchema = new Schema<IRentalUnit>({
     }
 }, DEFAULT_MODEL_OPTIONS);
 
+// Property can't have duplicate rental unit numbers
+RentalUnitSchema.index({ property: 1, unitNumber: -1 }, { unique: true });
 
 export default model<IRentalUnit>(Models.RentalUnit, RentalUnitSchema);

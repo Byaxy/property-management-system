@@ -42,6 +42,12 @@ describe("tests DB operations related to renting", () => {
         rentalUnitBId = rentalUnits[1]._id;
     })
 
+    it("throws on dupliate rental unit name in property", () => {
+        expect(async() => {
+            await RentalUnit.create({ ...mockRentalUnitA, property: propertyId });
+        }).rejects.toThrow();
+    })
+
     it("archives a rental unit", async() => {
         const res = await RentalUnit.updateOne({ _id: rentalUnitBId }, { isActive: false });
         expect(res.modifiedCount).toBe(1);
