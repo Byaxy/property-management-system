@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import User from '@/model/User';
-import { mockUser } from "@/utils/mock-data";
+import { mockManager, mockUser, mockUserB } from "@/utils/mock-data";
+import { Roles } from '@/utils';
 
 describe("tests DB operations using User as test model", () => {
     beforeAll(async () => {
@@ -27,6 +28,32 @@ describe("tests DB operations using User as test model", () => {
             roles: { $size: 0 }
         });
         expect(user).toBeDefined()
+    })
+
+    it("gets managers", async() => {
+        await User.create(mockManager);
+        const res = await User.find({ 
+            roles: { $in: [Roles.Manager] }
+        });
+        expect(res.length).toBe(1);
+    })
+
+    it("throws on invalid email during create", () => {
+        expect(async() => {
+            await User.create({ ...mockUserB, email: "test" });
+        }).rejects.toThrow();
+    })
+
+    it("throws on invalid phone number during create", () => {
+        expect(async() => {
+            await User.create({ ...mockUserB, phoneNumber: "test" });
+        }).rejects.toThrow();
+    })
+
+    it("throws on invalid role during create", () => {
+        expect(async() => {
+            await User.create({ ...mockUserB, roles: ["INVALID"] });
+        }).rejects.toThrow();
     })
 
     it("updates a user", async () => {

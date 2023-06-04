@@ -5,5 +5,5 @@ DONE - fetch prop and its rental units
 DONE - test m-m relationships in rented unit and tenant
 DONE - test m-m relationships in properties and managers
 - test validations(in built e.g. unique and custom ones)
-- ensure unit can't have 2 tenants per house(cpd index on rental-unit table)
+- ensure unit can't have 2 tenants per house(validation on whole model)
 - ensure unique name per rental unit in apartment(cpd key btn apt and name)

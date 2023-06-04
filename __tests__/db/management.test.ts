@@ -26,13 +26,6 @@ describe("tests DB operations related to property managers", () => {
         await mongoose.disconnect();
     })
 
-    it("gets managers", async() => {
-        const res = await User.find({ 
-            roles: { $in: [Roles.Manager] }
-        });
-        expect(res.length).toBe(1);
-    })
-
     it("assigns managers to a property", async() => {
         const res = await PropertyManager.create({ property: propertyId, manager: managerId });
         expect(res).toBeDefined()

@@ -20,7 +20,6 @@ const UserSchema = new Schema<IUser>({
     },
     email: {
         type: String,
-        unique: true,
         validate: {
             validator: function(value: string) {
                 return EMAIL_REGEX.test(value)

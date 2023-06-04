@@ -6,12 +6,6 @@ const PropertyManagerSchema = new Schema<IPropertyManager>({
         type: Schema.Types.ObjectId,
         ref: Models.Property,
         required: true,
-        validate: {
-            validator: function(value: Types.ObjectId) {
-                // Ensure senderId != receiverId
-                return !value.equals(this.managerId);
-            }
-        }
     },
     manager: {
         type: Schema.Types.ObjectId,
