@@ -1,10 +1,8 @@
 import mongoose, { Types } from 'mongoose';
 import Property from '@/model/Property';
-import { mockManager, mockProperty, mockRentalUnitA, mockRentalUnitB, mockUser } from "@/utils/mock-data";
-import RentalUnit from '@/model/RentalUnit';
+import { mockManager, mockProperty } from "@/utils/mock-data";
 import User from '@/model/User';
-import RentalUnitTenant from '@/model/RentalUnitTenant';
-import { IProperty, IRentalUnit, IUser, Roles } from '@/utils';
+import { IProperty, IUser } from '@/utils';
 import PropertyManager from '@/model/PropertyManager';
 
 describe("tests DB operations related to property managers", () => {
