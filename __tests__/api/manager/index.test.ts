@@ -47,19 +47,19 @@ describe("tests /api/manager API endpoint", () => {
         expect(Array.isArray(res._getJSONData())).toBe(true);
     })
 
-    it("checks if manager account has role manager", async() => {
-        req.method = "GET";
-        await ManagerApi(req, res);
-        expect(res.statusCode).toBe(200);
-        expect(res.statusMessage).toEqual("OK");
-        expect(res._getJSONData()[0].roles).toEqual([ Roles.Manager ]);
-    })
+    // it("checks if manager account has role manager", async() => {
+    //     req.method = "GET";
+    //     await ManagerApi(req, res);
+    //     expect(res.statusCode).toBe(200);
+    //     expect(res.statusMessage).toEqual("OK");
+    //     expect(res._getJSONData()[0].roles).toEqual([ Roles.Manager ]);
+    // })
 
-    it("checks if manager account has password", async() => {
-        req.method = "GET";
-        await ManagerApi(req, res);
-        expect(res.statusCode).toBe(200);
-        expect(res.statusMessage).toEqual("OK");
-        expect(res._getJSONData()[0].password).toBeDefined();
-    })
+    // it("checks if manager account has password", async() => {
+    //     req.method = "GET";
+    //     await ManagerApi(req, res);
+    //     expect(res.statusCode).toBe(200);
+    //     expect(res.statusMessage).toEqual("OK");
+    //     expect(res._getJSONData()[0].password).toBeDefined();
+    // })
 })

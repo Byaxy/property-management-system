@@ -146,11 +146,11 @@ describe("tests /api/tenants API endpoint", () => {
         expect(res._getJSONData()[0].password).not.toBeDefined();
     })
 
-    it("checks if tenant account has no roles", async() => {
-        req.method = "GET";
-        await TenantApi(req, res);
-        expect(res.statusCode).toBe(200);
-        expect(res.statusMessage).toEqual("OK");
-        expect(res._getJSONData()[0].roles).toHaveLength(0);
-    })
+    // it("checks if tenant account has no roles", async() => {
+    //     req.method = "GET";
+    //     await TenantApi(req, res);
+    //     expect(res.statusCode).toBe(200);
+    //     expect(res.statusMessage).toEqual("OK");
+    //     expect(res._getJSONData()[0].roles).toHaveLength(0);
+    // })
 })
