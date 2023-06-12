@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { IProperty, PropertyType, Models, DEFAULT_MODEL_OPTIONS, addCommas, PROPERTY_TYPES } from '@/utils';
+import { IProperty, Models, DEFAULT_MODEL_OPTIONS, addCommas, PROPERTY_TYPES } from '@/utils';
 
 const PropertySchema = new Schema<IProperty>({
     name: {

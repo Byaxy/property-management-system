@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     switch(req.method) {
         case "GET":
-            let property = (await Property.findOne({ _id: id }));
+            let property = await Property.findOne({ _id: id });
             if (property) return res.status(200).json(property);
             return res.writeHead(404, statusMessages[404]).end();
         case "PUT":
