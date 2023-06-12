@@ -1,21 +1,23 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import DbConnection from "@/utils/db";
 import User from "@/model/User";
-import { convertRequestErrorsToJson, statusMessages } from "@/utils";
+import { Roles, convertRequestErrorsToJson, generatePassword, hashPassword, statusMessages } from "@/utils";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     await DbConnection.connect();
 
     switch(req.method) {
-        // GET all tenants
+        // GET all managers
         case "GET":
-            const tenants = await User.find({ roles: { $size: 0 } });
-            return res.status(200).json(tenants);
+            const result = await User.find({ roles: { $in: [ Roles.Manager ]} });
+            return res.status(200).json(result);
         // Create a user
         case "POST":
             try {
                 // Roles and id should not be assignable from the frontend
                 const { roles, _id, ...rest } = req.body;
+                rest.password = await hashPassword(generatePassword());
+                rest.roles = [Roles.Manager];
                 await User.create(rest);
                 return res.writeHead(201, statusMessages[201]).end();
             } catch(e) {

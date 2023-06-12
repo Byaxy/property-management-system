@@ -18,10 +18,6 @@ describe("tests /api/tenants API endpoint", () => {
         await mongoose.disconnect();
     })
 
-    beforeEach(async () => {
-        await User.deleteMany({});
-    })
-
     beforeEach(() => {
         req = HttpMocks.createRequest();
         res = HttpMocks.createResponse();
@@ -120,15 +116,41 @@ describe("tests /api/tenants API endpoint", () => {
                 }
             }
         );
+
+        // Clear DB for next test
+        await User.deleteMany({});
     })
 
     it("successfully creates tenant and ignores the _id field", async() => {
         req.method = "POST";
         req.body = { ...mockUser, _id: 1 }
-
         await TenantApi(req, res);
+        expect(res.statusCode).toBe(201);
+        expect(res.statusMessage).toEqual("Created");
+    })
 
+    it("gets tenants", async() => {
+        req.method = "GET";
+        await TenantApi(req, res);
         expect(res.statusCode).toBe(200);
         expect(res.statusMessage).toEqual("OK");
+        expect(Array.isArray(res._getJSONData())).toBe(true);
+        expect(res._getJSONData().length).toBe(1);
+    })
+
+    it("checks if tenant account has no password", async() => {
+        req.method = "GET";
+        await TenantApi(req, res);
+        expect(res.statusCode).toBe(200);
+        expect(res.statusMessage).toEqual("OK");
+        expect(res._getJSONData()[0].password).not.toBeDefined();
+    })
+
+    it("checks if tenant account has no roles", async() => {
+        req.method = "GET";
+        await TenantApi(req, res);
+        expect(res.statusCode).toBe(200);
+        expect(res.statusMessage).toEqual("OK");
+        expect(res._getJSONData()[0].roles).toHaveLength(0);
     })
 })

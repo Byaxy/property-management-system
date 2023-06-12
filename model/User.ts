@@ -86,7 +86,10 @@ const UserSchema = new Schema<IUser>({
         }
     },
     photo: String,
-    password: String,
+    password: {
+        type: String,
+        select: false // See https://mongoosejs.com/docs/api/query.html#Query.prototype.select()
+    },
     roles: {
         type: [],
         required: true,
@@ -99,7 +102,8 @@ const UserSchema = new Schema<IUser>({
                 })
                 return true;
             }
-        }
+        },
+        select: false // See https://mongoosejs.com/docs/api/query.html#Query.prototype.select()
     },
     isActive: {
         type: Boolean,

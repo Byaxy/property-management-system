@@ -7,14 +7,16 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest -t \"tests /api/tenants/id API endpoint\" --detectOpenHandles"
+    "test": "jest -t \"tests /api/managers/id API route\" --detectOpenHandles"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.3",
+    "@types/bcrypt": "^5.0.0",
     "autoprefixer": "10.4.14",
+    "bcrypt": "^5.1.0",
     "chart.js": "^4.3.0",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.1",

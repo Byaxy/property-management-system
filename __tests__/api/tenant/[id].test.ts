@@ -5,7 +5,7 @@ import mongoose, { Types } from "mongoose";
 import { statusMessages } from "@/utils";
 import TenantApi from "@/pages/api/tenant/[id]";
 
-describe("tests /api/tenants/id API endpoint", () => {
+describe("tests /api/tenants/[id] API route", () => {
     let req;
     let res;
     let tenantId: Types.ObjectId;
