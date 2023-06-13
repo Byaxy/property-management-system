@@ -17,7 +17,7 @@ export const mockUserB: IUser =  {
     lastName: "Doe",
     identificationNumber: "1237483B",
     identificationType: IdType.NATIONAL_ID,
-    phoneNumber: "25671289895",
+    phoneNumber: "256712898915",
     gender: Gender.FEMALE,
     nationality: "Uganda"
 }
